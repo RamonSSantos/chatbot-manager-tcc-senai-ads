@@ -1,0 +1,113 @@
+{
+  "id": "d11c5944-6717-40f8-b229-22b7d7434080",
+  "name": "User Validation",
+  "auto": true,
+  "condition": "",
+  "conditionalFollowupEvents": [],
+  "conditionalResponses": [],
+  "context": [
+    "get-user-followup"
+  ],
+  "contexts": [
+    "get-user-followup"
+  ],
+  "endInteraction": false,
+  "events": [],
+  "fallbackIntent": false,
+  "liveAgentHandoff": false,
+  "parentId": "70ab0d80-7a7e-4895-8d54-78bf636b1ca7",
+  "followUpIntents": [],
+  "priority": 500000,
+  "responses": [
+    {
+      "action": "user.validation",
+      "affectedContexts": [
+        {
+          "name": "user-validation-followup",
+          "lifespan": 10
+        }
+      ],
+      "parameters": [
+        {
+          "noInputPromptMessages": [],
+          "noMatchPromptMessages": [],
+          "promptMessages": [],
+          "defaultValue": "",
+          "name": "fullname",
+          "dataType": "@sys.any",
+          "isList": false,
+          "required": true,
+          "prompts": [],
+          "value": "#get-user-followup.fullname",
+          "outputDialogContexts": []
+        },
+        {
+          "noInputPromptMessages": [],
+          "noMatchPromptMessages": [],
+          "promptMessages": [],
+          "defaultValue": "",
+          "name": "registration",
+          "dataType": "@sys.number",
+          "isList": false,
+          "required": true,
+          "prompts": [],
+          "value": "#get-user-followup.registration",
+          "outputDialogContexts": []
+        },
+        {
+          "noInputPromptMessages": [],
+          "noMatchPromptMessages": [],
+          "promptMessages": [],
+          "defaultValue": "",
+          "name": "email",
+          "dataType": "@sys.email",
+          "isList": false,
+          "required": true,
+          "prompts": [],
+          "value": "#get-user-followup.email",
+          "outputDialogContexts": []
+        },
+        {
+          "noInputPromptMessages": [],
+          "noMatchPromptMessages": [],
+          "promptMessages": [],
+          "defaultValue": "",
+          "name": "cpf",
+          "dataType": "@sys.any",
+          "isList": false,
+          "required": true,
+          "prompts": [],
+          "value": "#get-user-followup.cpf",
+          "outputDialogContexts": []
+        },
+        {
+          "noInputPromptMessages": [],
+          "noMatchPromptMessages": [],
+          "promptMessages": [],
+          "defaultValue": "",
+          "name": "cellphone",
+          "dataType": "@sys.phone-number",
+          "isList": false,
+          "required": true,
+          "prompts": [],
+          "value": "#get-user-followup.cellphone",
+          "outputDialogContexts": []
+        }
+      ],
+      "defaultResponsePlatforms": {},
+      "messages": [
+        {
+          "type": "message",
+          "condition": "",
+          "speech": []
+        }
+      ],
+      "resetContexts": false
+    }
+  ],
+  "rootParentId": "70ab0d80-7a7e-4895-8d54-78bf636b1ca7",
+  "templates": [],
+  "userSays": [],
+  "webhookForSlotFilling": false,
+  "webhookUsed": true
+}

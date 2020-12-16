@@ -1,0 +1,133 @@
+{
+  "id": "72247606-44df-4cbf-9579-dde96cbb6605",
+  "name": "Content",
+  "auto": true,
+  "condition": "",
+  "conditionalFollowupEvents": [],
+  "conditionalResponses": [],
+  "context": [
+    "authenticated-user-followup"
+  ],
+  "contexts": [
+    "authenticated-user-followup"
+  ],
+  "endInteraction": false,
+  "events": [],
+  "fallbackIntent": false,
+  "liveAgentHandoff": false,
+  "parentId": null,
+  "followUpIntents": [],
+  "priority": 500000,
+  "responses": [
+    {
+      "action": "accept.content",
+      "affectedContexts": [
+        {
+          "name": "content-followup",
+          "lifespan": 1
+        }
+      ],
+      "parameters": [
+        {
+          "noInputPromptMessages": [],
+          "noMatchPromptMessages": [],
+          "promptMessages": [],
+          "defaultValue": "",
+          "name": "firstName",
+          "dataType": "@sys.any",
+          "isList": false,
+          "required": true,
+          "prompts": [],
+          "value": "#authenticated-user-followup.firstName",
+          "outputDialogContexts": []
+        },
+        {
+          "noInputPromptMessages": [],
+          "noMatchPromptMessages": [],
+          "promptMessages": [],
+          "defaultValue": "",
+          "name": "userId",
+          "dataType": "@sys.number-integer",
+          "isList": false,
+          "required": true,
+          "prompts": [],
+          "value": "#authenticated-user-followup.userId",
+          "outputDialogContexts": []
+        }
+      ],
+      "defaultResponsePlatforms": {},
+      "messages": [],
+      "resetContexts": false
+    }
+  ],
+  "rootParentId": null,
+  "templates": [],
+  "userSays": [
+    {
+      "isTemplate": false,
+      "data": [
+        {
+          "text": "blz",
+          "userDefined": false,
+          "meta": "@sys.ignore",
+          "alias": null
+        }
+      ],
+      "count": 0,
+      "id": "b00eff36-51ef-4d90-9b8d-cfdbdd6dc559",
+      "updated": null
+    },
+    {
+      "isTemplate": false,
+      "data": [
+        {
+          "text": "Sim eu desejo",
+          "userDefined": false
+        }
+      ],
+      "count": 0,
+      "id": "1cff8aa9-36e0-4e19-b475-b629863678dd",
+      "updated": null
+    },
+    {
+      "isTemplate": false,
+      "data": [
+        {
+          "text": "Sim eu quero",
+          "userDefined": false
+        }
+      ],
+      "count": 0,
+      "id": "15a936d3-904d-4950-8506-4b4922a09979",
+      "updated": null
+    },
+    {
+      "isTemplate": false,
+      "data": [
+        {
+          "text": "ok",
+          "userDefined": false,
+          "meta": "@sys.ignore",
+          "alias": null
+        }
+      ],
+      "count": 0,
+      "id": "c0ecaba6-9dd0-4c47-b911-5f8c6c8befa8",
+      "updated": null
+    },
+    {
+      "isTemplate": false,
+      "data": [
+        {
+          "text": "Sim",
+          "userDefined": false
+        }
+      ],
+      "count": 0,
+      "id": "9c2fd9f1-7201-44ee-95c6-bf9f937a2884",
+      "updated": null
+    }
+  ],
+  "webhookForSlotFilling": false,
+  "webhookUsed": true
+}

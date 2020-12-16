@@ -1,0 +1,188 @@
+{
+  "id": "70ab0d80-7a7e-4895-8d54-78bf636b1ca7",
+  "name": "Get User",
+  "auto": true,
+  "condition": "",
+  "conditionalFollowupEvents": [],
+  "conditionalResponses": [],
+  "context": [
+    "chatbot-presentation-followup"
+  ],
+  "contexts": [
+    "chatbot-presentation-followup"
+  ],
+  "endInteraction": false,
+  "events": [],
+  "fallbackIntent": false,
+  "liveAgentHandoff": false,
+  "parentId": null,
+  "followUpIntents": [],
+  "priority": 500000,
+  "responses": [
+    {
+      "action": "get.user",
+      "affectedContexts": [
+        {
+          "name": "get-user-followup",
+          "lifespan": 1
+        }
+      ],
+      "parameters": [
+        {
+          "noInputPromptMessages": [],
+          "noMatchPromptMessages": [],
+          "promptMessages": [],
+          "defaultValue": "",
+          "name": "fullname",
+          "dataType": "@sys.any",
+          "isList": false,
+          "required": false,
+          "prompts": [],
+          "value": "$fullname",
+          "outputDialogContexts": []
+        },
+        {
+          "noInputPromptMessages": [],
+          "noMatchPromptMessages": [],
+          "promptMessages": [],
+          "defaultValue": "",
+          "name": "registration",
+          "dataType": "@sys.number",
+          "isList": false,
+          "required": true,
+          "prompts": [
+            "Qual a sua matrícula?",
+            "Informe a sua matrícula"
+          ],
+          "value": "$registration",
+          "outputDialogContexts": []
+        },
+        {
+          "noInputPromptMessages": [],
+          "noMatchPromptMessages": [],
+          "promptMessages": [],
+          "defaultValue": "",
+          "name": "email",
+          "dataType": "@sys.email",
+          "isList": false,
+          "required": true,
+          "prompts": [
+            "Qual o seu e-mail?",
+            "Informe o seu email"
+          ],
+          "value": "$email",
+          "outputDialogContexts": []
+        },
+        {
+          "noInputPromptMessages": [],
+          "noMatchPromptMessages": [],
+          "promptMessages": [],
+          "defaultValue": "",
+          "name": "cpf",
+          "dataType": "@sys.any",
+          "isList": false,
+          "required": true,
+          "prompts": [
+            "Qual o seu CPF?",
+            "Informe o seu CPF"
+          ],
+          "value": "$cpf",
+          "outputDialogContexts": []
+        },
+        {
+          "noInputPromptMessages": [],
+          "noMatchPromptMessages": [],
+          "promptMessages": [],
+          "defaultValue": "",
+          "name": "cellphone",
+          "dataType": "@sys.phone-number",
+          "isList": false,
+          "required": true,
+          "prompts": [
+            "Informe seu numero para contato",
+            "Informe seu numero de celular"
+          ],
+          "value": "$cellphone",
+          "outputDialogContexts": []
+        }
+      ],
+      "defaultResponsePlatforms": {},
+      "messages": [],
+      "resetContexts": false
+    }
+  ],
+  "rootParentId": null,
+  "templates": [],
+  "userSays": [
+    {
+      "isTemplate": false,
+      "data": [
+        {
+          "text": "Me chamo ",
+          "userDefined": false
+        },
+        {
+          "text": "Bill",
+          "userDefined": false,
+          "alias": "fullname",
+          "meta": "@sys.any"
+        }
+      ],
+      "count": 0,
+      "id": "563f76f3-ac5b-47a2-9af1-6d4da7249a94",
+      "updated": null
+    },
+    {
+      "isTemplate": false,
+      "data": [
+        {
+          "text": "Meu nome é ",
+          "userDefined": false
+        },
+        {
+          "text": "Bill",
+          "userDefined": false,
+          "alias": "fullname",
+          "meta": "@sys.any"
+        }
+      ],
+      "count": 0,
+      "id": "27eb42ff-b0ae-4b4c-95b6-a13c3e7823fc",
+      "updated": null
+    },
+    {
+      "isTemplate": false,
+      "data": [
+        {
+          "text": "Eu sou o ",
+          "userDefined": false
+        },
+        {
+          "text": "Bill",
+          "userDefined": false,
+          "alias": "fullname",
+          "meta": "@sys.any"
+        }
+      ],
+      "count": 0,
+      "id": "25d755ab-28c0-4753-b29e-5c4e58646c96",
+      "updated": null
+    },
+    {
+      "isTemplate": false,
+      "data": [
+        {
+          "text": "Bill",
+          "userDefined": false,
+          "alias": "fullname",
+          "meta": "@sys.any"
+        }
+      ],
+      "count": 0,
+      "id": "b9916def-d717-4a5e-b321-f654d3280ee8",
+      "updated": null
+    }
+  ],
+  "webhookForSlotFilling": false,
+  "webhookUsed": true
+}

@@ -1,0 +1,71 @@
+{
+  "id": "7a5f1b2d-47b0-4e61-a13f-246a653f7bc4",
+  "name": "Chatbot Presentation",
+  "auto": true,
+  "condition": "",
+  "conditionalFollowupEvents": [],
+  "conditionalResponses": [],
+  "context": [
+    "welcome-followup"
+  ],
+  "contexts": [
+    "welcome-followup"
+  ],
+  "endInteraction": false,
+  "events": [
+    {
+      "name": "ChatbotPresentation"
+    }
+  ],
+  "fallbackIntent": false,
+  "liveAgentHandoff": false,
+  "parentId": null,
+  "followUpIntents": [],
+  "priority": 500000,
+  "responses": [
+    {
+      "action": "",
+      "affectedContexts": [
+        {
+          "name": "chatbot-presentation-followup",
+          "lifespan": 1
+        }
+      ],
+      "parameters": [],
+      "defaultResponsePlatforms": {
+        "hangouts": true
+      },
+      "messages": [
+        {
+          "type": "message",
+          "platform": "hangouts",
+          "condition": "",
+          "speech": [
+            "Olá, me chamo CollaBot e sou um chatbot!\nPode me chamar a qualquer momento enviando apenas um \"oi\"..."
+          ]
+        },
+        {
+          "type": "message",
+          "platform": "hangouts",
+          "condition": "",
+          "speech": [
+            "Qual o seu nome completo?",
+            "Diga-me o seu nome completo",
+            "Informe o seu nome completo"
+          ]
+        },
+        {
+          "type": "message",
+          "condition": "",
+          "speech": []
+        }
+      ],
+      "resetContexts": false
+    }
+  ],
+  "rootParentId": null,
+  "templates": [],
+  "userSays": [],
+  "webhookForSlotFilling": false,
+  "webhookUsed": true
+}

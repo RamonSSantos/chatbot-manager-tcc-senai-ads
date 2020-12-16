@@ -1,0 +1,113 @@
+{
+  "id": "3550d889-6335-4744-baf9-f65d9aebe522",
+  "name": "Send Question",
+  "auto": true,
+  "condition": "",
+  "conditionalFollowupEvents": [],
+  "conditionalResponses": [],
+  "context": [
+    "content-followup"
+  ],
+  "contexts": [
+    "content-followup"
+  ],
+  "endInteraction": false,
+  "events": [
+    {
+      "name": "SendQuestion"
+    }
+  ],
+  "fallbackIntent": false,
+  "liveAgentHandoff": false,
+  "parentId": "72247606-44df-4cbf-9579-dde96cbb6605",
+  "followUpIntents": [],
+  "priority": 500000,
+  "responses": [
+    {
+      "action": "send.question",
+      "affectedContexts": [
+        {
+          "name": "send-question-followup",
+          "lifespan": 1
+        }
+      ],
+      "parameters": [
+        {
+          "noInputPromptMessages": [],
+          "noMatchPromptMessages": [],
+          "promptMessages": [],
+          "defaultValue": "",
+          "name": "userId",
+          "dataType": "@sys.number-integer",
+          "isList": false,
+          "required": true,
+          "prompts": [],
+          "value": "#content-followup.userId",
+          "outputDialogContexts": []
+        },
+        {
+          "noInputPromptMessages": [],
+          "noMatchPromptMessages": [],
+          "promptMessages": [],
+          "defaultValue": "",
+          "name": "contentId",
+          "dataType": "@sys.number-integer",
+          "isList": false,
+          "required": true,
+          "prompts": [],
+          "value": "#content-followup.contentId",
+          "outputDialogContexts": []
+        },
+        {
+          "noInputPromptMessages": [],
+          "noMatchPromptMessages": [],
+          "promptMessages": [],
+          "defaultValue": "",
+          "name": "questionId",
+          "dataType": "@sys.number-integer",
+          "isList": false,
+          "required": true,
+          "prompts": [],
+          "value": "#content-followup.questionId",
+          "outputDialogContexts": []
+        },
+        {
+          "noInputPromptMessages": [],
+          "noMatchPromptMessages": [],
+          "promptMessages": [],
+          "defaultValue": "",
+          "name": "questionDescription",
+          "dataType": "@sys.any",
+          "isList": false,
+          "required": true,
+          "prompts": [],
+          "value": "#content-followup.questionDescription",
+          "outputDialogContexts": []
+        },
+        {
+          "noInputPromptMessages": [],
+          "noMatchPromptMessages": [],
+          "promptMessages": [],
+          "defaultValue": "",
+          "name": "getAnswer",
+          "dataType": "@sys.any",
+          "isList": false,
+          "required": true,
+          "prompts": [
+            "#content-followup.questionDescription"
+          ],
+          "value": "$getAnswer",
+          "outputDialogContexts": []
+        }
+      ],
+      "defaultResponsePlatforms": {},
+      "messages": [],
+      "resetContexts": false
+    }
+  ],
+  "rootParentId": "72247606-44df-4cbf-9579-dde96cbb6605",
+  "templates": [],
+  "userSays": [],
+  "webhookForSlotFilling": false,
+  "webhookUsed": true
+}

@@ -1,0 +1,159 @@
+{
+  "id": "9c7e410b-eb41-4e9c-a7fb-5443d121c609",
+  "name": "Authenticated User",
+  "auto": true,
+  "condition": "",
+  "conditionalFollowupEvents": [],
+  "conditionalResponses": [],
+  "context": [
+    "user-validation-followup"
+  ],
+  "contexts": [
+    "user-validation-followup"
+  ],
+  "endInteraction": false,
+  "events": [
+    {
+      "name": "AuthenticatedUser"
+    }
+  ],
+  "fallbackIntent": false,
+  "liveAgentHandoff": false,
+  "parentId": "70ab0d80-7a7e-4895-8d54-78bf636b1ca7",
+  "followUpIntents": [],
+  "priority": 500000,
+  "responses": [
+    {
+      "action": "authenticated.user",
+      "affectedContexts": [
+        {
+          "name": "authenticated-user-followup",
+          "lifespan": 10
+        }
+      ],
+      "parameters": [
+        {
+          "noInputPromptMessages": [],
+          "noMatchPromptMessages": [],
+          "promptMessages": [],
+          "defaultValue": "",
+          "name": "firstName",
+          "dataType": "@sys.any",
+          "isList": false,
+          "required": true,
+          "prompts": [],
+          "value": "#user-validation-followup.firstName",
+          "outputDialogContexts": []
+        },
+        {
+          "noInputPromptMessages": [],
+          "noMatchPromptMessages": [],
+          "promptMessages": [],
+          "defaultValue": "",
+          "name": "userId",
+          "dataType": "@sys.number-integer",
+          "isList": false,
+          "required": true,
+          "prompts": [],
+          "value": "#user-validation-followup.userId",
+          "outputDialogContexts": []
+        },
+        {
+          "noInputPromptMessages": [],
+          "noMatchPromptMessages": [],
+          "promptMessages": [],
+          "defaultValue": "",
+          "name": "registration",
+          "dataType": "@sys.number",
+          "isList": false,
+          "required": true,
+          "prompts": [],
+          "value": "#user-validation-followup.registration",
+          "outputDialogContexts": []
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "hangouts": true
+      },
+      "messages": [
+        {
+          "type": "message",
+          "platform": "hangouts",
+          "condition": "",
+          "speech": [
+            "#user-validation-followup.firstName, validamos os seus dados!",
+            "Ok #user-validation-followup.firstName, os seus dados foram validados!"
+          ]
+        },
+        {
+          "type": "custom_payload",
+          "platform": "hangouts",
+          "condition": "",
+          "payload": {
+            "hangouts": {
+              "header": {
+                "title": "Deseja receber materias/conteúdos/avisos que são disponibilizados para os colaboradores?"
+              },
+              "sections": [
+                {
+                  "widgets": [
+                    {
+                      "buttons": [
+                        {
+                          "textButton": {
+                            "onClick": {
+                              "action": {
+                                "actionMethodName": "accept.content",
+                                "parameters": [
+                                  {
+                                    "value": "$firstName",
+                                    "key": "firstName"
+                                  },
+                                  {
+                                    "value": "$userId",
+                                    "key": "userId"
+                                  }
+                                ]
+                              }
+                            },
+                            "text": "Sim"
+                          }
+                        },
+                        {
+                          "textButton": {
+                            "onClick": {
+                              "action": {
+                                "actionMethodName": "dont.accept.content",
+                                "parameters": [
+                                  {
+                                    "value": "$firstName",
+                                    "key": "firstName"
+                                  },
+                                  {
+                                    "key": "userId",
+                                    "value": "$userId"
+                                  }
+                                ]
+                              }
+                            },
+                            "text": "Não"
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "resetContexts": false
+    }
+  ],
+  "rootParentId": "70ab0d80-7a7e-4895-8d54-78bf636b1ca7",
+  "templates": [],
+  "userSays": [],
+  "webhookForSlotFilling": false,
+  "webhookUsed": false
+}
