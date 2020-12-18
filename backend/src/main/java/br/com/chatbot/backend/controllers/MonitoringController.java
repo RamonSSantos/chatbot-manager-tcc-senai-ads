@@ -1,13 +1,16 @@
 package br.com.chatbot.backend.controllers;
 
 import br.com.chatbot.backend.dtos.BasicReportDto;
+import br.com.chatbot.backend.dtos.EnumValuesDto;
 import br.com.chatbot.backend.models.MonitoringEntity;
 import br.com.chatbot.backend.services.MonitoringService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import java.time.LocalDate;
 import java.util.List;
 
 @RequestMapping(value = "/api/monitoring", method = RequestMethod.GET)
@@ -50,5 +53,21 @@ public class MonitoringController {
     @GetMapping(value = "/report/get-all-group-by-status")
     public ResponseEntity<List<BasicReportDto>> getAllGroupByStatus() {
         return ResponseEntity.status(HttpStatus.OK).body(monitoringService.getAllStatusAndCountIdGroupByStatus());
+    }
+
+    @GetMapping(value = "/report/get-all-monitoring-log-status")
+    public ResponseEntity<List<EnumValuesDto>> getAllMonitoringLogStatusEnum() {
+        return ResponseEntity.status(HttpStatus.OK).body(monitoringService.getAllMonitoringLogStatusEnum());
+    }
+
+    @GetMapping(value = "/report/get-all-group-by-sector-description")
+    public ResponseEntity<?> getAllGroupBySectorDescription(
+            @RequestParam int status,
+            @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate startingDate,
+            @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate endingDate) {
+
+        return ResponseEntity.status(HttpStatus.OK).body(
+                monitoringService.getAllSectorDescriptionAndCountStatusByStatusAndBetweenLogDate(
+                        status, startingDate, endingDate));
     }
 }

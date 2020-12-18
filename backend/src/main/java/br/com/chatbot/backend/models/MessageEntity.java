@@ -21,11 +21,17 @@ public class MessageEntity {
     @Column(name = "actor", nullable = false, length = 1)
     private int actor;
 
-    @Column(name = "description", nullable = false)
-    private String description;
+    @Column(name = "status", nullable = false)
+    private int status;
+
+    @Column(name = "user_id", nullable = false)
+    private int userId;
 
     @Column(name = "content_id", nullable = false)
     private int contentId;
+
+    @Column(name = "question_id")
+    private int questionId;
 
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
     @JoinTable(name = "message_has_log",

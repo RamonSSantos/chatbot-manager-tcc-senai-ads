@@ -13,6 +13,6 @@ public interface LogRepository extends JpaRepository<LogEntity, Integer> {
     @Query("select new br.com.chatbot.backend.dtos.LogMessageDto(l.id, l.date, l.status, l.user.fullname) "
             + "from LogEntity l "
             + "inner join l.message m "
-            + "where l.user.id = :userId and m.contentId = :contentId ")
+            + "where l.user.id = :userId and m.userId = :userId and m.contentId = :contentId ")
     List<LogMessageDto> getByUserIdAndMessageContentId(@Param("userId") int userId, @Param("contentId") int contentId);
 }

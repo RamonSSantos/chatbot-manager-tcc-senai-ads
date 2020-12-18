@@ -5,6 +5,7 @@ import br.com.chatbot.backend.models.AnswerEntity;
 import br.com.chatbot.backend.models.ContentEntity;
 import br.com.chatbot.backend.models.KeywordEntity;
 import br.com.chatbot.backend.models.QuestionEntity;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -33,12 +34,12 @@ public interface ContentRepository extends JpaRepository<ContentEntity, Integer>
     @Query("select new br.com.chatbot.backend.dtos.BasicReportDto(t.description, count(c.id)) "
             + "from ContentEntity c "
             + "inner join TopicEntity t on t.id = c.topic.id "
-            + "group by t.description ")
-    List<BasicReportDto> getAllTopicDescriptionAndCountIdGroupByTopicDescription();
+            + "group by t.description order by count(c.id) desc ")
+    List<BasicReportDto> getAllTopicDescriptionAndCountIdGroupByTopicDescription(Pageable pageable);
 
     @Query("select new br.com.chatbot.backend.dtos.BasicReportDto(s.description, count(c.id)) "
             + "from ContentEntity c "
             + "left join SectorEntity s on s.id = c.sector.id "
-            + "group by s.description ")
-    List<BasicReportDto> getAllSectorDescriptionAndCountIdGroupBySectorDescription();
+            + "group by s.description order by count(c.id) desc ")
+    List<BasicReportDto> getAllSectorDescriptionAndCountIdGroupBySectorDescription(Pageable pageable);
 }

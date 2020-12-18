@@ -1,9 +1,11 @@
 package br.com.chatbot.backend.services;
 
 import br.com.chatbot.backend.dtos.BasicReportDto;
+import br.com.chatbot.backend.dtos.EnumValuesDto;
 import br.com.chatbot.backend.dtos.LogDto;
 import br.com.chatbot.backend.models.MonitoringEntity;
 import org.springframework.data.domain.Page;
+import java.time.LocalDate;
 import java.util.List;
 
 public interface MonitoringService {
@@ -16,4 +18,10 @@ public interface MonitoringService {
     void editStatus(int id, int status);
 
     List<BasicReportDto> getAllStatusAndCountIdGroupByStatus();
+
+    List<EnumValuesDto> getAllMonitoringLogStatusEnum();
+
+    List<BasicReportDto> getAllSectorDescriptionAndCountStatusByStatusAndBetweenLogDate(int status,
+                                                                                        LocalDate startingDate,
+                                                                                        LocalDate endingDate);
 }

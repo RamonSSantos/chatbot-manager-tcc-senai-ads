@@ -1,9 +1,6 @@
 package br.com.chatbot.backend.services;
 
-import br.com.chatbot.backend.dtos.AuthenticationDto;
-import br.com.chatbot.backend.dtos.BasicReportDto;
-import br.com.chatbot.backend.dtos.BasicReportLogDto;
-import br.com.chatbot.backend.dtos.LogDto;
+import br.com.chatbot.backend.dtos.*;
 import br.com.chatbot.backend.enums.MonitoringLogStatusEnum;
 import br.com.chatbot.backend.models.LogEntity;
 import br.com.chatbot.backend.models.MonitoringEntity;
@@ -19,11 +16,9 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
+import java.util.*;
 
 @Service
 public class MonitoringServiceImpl implements MonitoringService {
@@ -111,7 +106,7 @@ public class MonitoringServiceImpl implements MonitoringService {
 
     @Override
     public List<BasicReportDto> getAllStatusAndCountIdGroupByStatus() {
-        List<BasicReportLogDto> basicReportLogDto = monitoringRepository.getAllStatusAndCountIdGroupByStatus();
+        List<BasicReportLogDto> basicReportLogDto = monitoringRepository.getAllStatusAndCountIdGroupByStatus(PageRequest.of(0, 5));
 
         List<BasicReportDto> basicReportDto = new ArrayList<>();
 
@@ -121,6 +116,47 @@ public class MonitoringServiceImpl implements MonitoringService {
             reportDto.setDescription(Objects.requireNonNull(MonitoringLogStatusEnum.fromId(dto.getStatus())).getDescription());
 
             basicReportDto.add(reportDto);
+        }
+
+        return basicReportDto;
+    }
+
+    @Override
+    public List<EnumValuesDto> getAllMonitoringLogStatusEnum() {
+        List<EnumValuesDto> enumValuesDto = new ArrayList<>();
+
+        List<MonitoringLogStatusEnum> monitoringLogStatusEnum = Arrays.asList(MonitoringLogStatusEnum.values());
+        for (MonitoringLogStatusEnum enumValues : monitoringLogStatusEnum) {
+            EnumValuesDto dto = new EnumValuesDto();
+
+            dto.setId(enumValues.getValue());
+            dto.setDescription(enumValues.getDescription());
+
+            enumValuesDto.add(dto);
+        }
+
+        return enumValuesDto;
+    }
+
+    @Override
+    public List<BasicReportDto> getAllSectorDescriptionAndCountStatusByStatusAndBetweenLogDate(int status,
+                                                                                               LocalDate startingDate,
+                                                                                               LocalDate endingDate) {
+        Objects.requireNonNull(startingDate, "Informe a data inicial.");
+        Objects.requireNonNull(endingDate, "Informe a data final.");
+
+        if (startingDate.isAfter(endingDate)) {
+            throw new IllegalStateException("A data inicial é maior que a data final.");
+        }
+
+        LocalDateTime startDate = startingDate.atStartOfDay();
+        LocalDateTime endDate = endingDate.atTime(23, 59, 59);
+
+        List<BasicReportDto> basicReportDto = monitoringRepository.getAllSectorDescriptionAndCountStatusByStatusAndBetweenLogDate(
+                status,startDate, endDate, PageRequest.of(0, 10));
+
+        for (BasicReportDto dto : basicReportDto) {
+            dto.setDescription(dto.getDescription() == null ? "Não possui setor" : dto.getDescription());
         }
 
         return basicReportDto;

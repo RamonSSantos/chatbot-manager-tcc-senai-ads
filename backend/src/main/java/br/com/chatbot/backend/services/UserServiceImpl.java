@@ -234,12 +234,12 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<BasicReportDto> getAllSectorDescriptionAndCountIdGroupBySectorDescription() {
-        return userRepository.getAllSectorDescriptionAndCountIdGroupBySectorDescription();
+        return userRepository.getAllSectorDescriptionAndCountIdGroupBySectorDescription(PageRequest.of(0, 10));
     }
 
     @Override
     public List<BasicReportDto> getAllProfileDescriptionAndCountIdGroupByProfileDescription() {
-        return userRepository.getAllProfileDescriptionAndCountIdGroupByProfileDescription();
+        return userRepository.getAllProfileDescriptionAndCountIdGroupByProfileDescription(PageRequest.of(0, 3));
     }
 
     @Override

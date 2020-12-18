@@ -116,12 +116,18 @@ public class ContentServiceImpl implements ContentService {
 
     @Override
     public List<BasicReportDto> getAllTopicDescriptionAndCountIdGroupByTopicDescription() {
-        return contentRepository.getAllTopicDescriptionAndCountIdGroupByTopicDescription();
+        return contentRepository.getAllTopicDescriptionAndCountIdGroupByTopicDescription(PageRequest.of(0, 10));
     }
 
     @Override
     public List<BasicReportDto> getAllSectorDescriptionAndCountIdGroupBySectorDescription() {
-        return contentRepository.getAllSectorDescriptionAndCountIdGroupBySectorDescription();
+        List<BasicReportDto> basicReportDtos = contentRepository.getAllSectorDescriptionAndCountIdGroupBySectorDescription(PageRequest.of(0, 10));
+
+        for (BasicReportDto basicReportDto : basicReportDtos) {
+            basicReportDto.setDescription(basicReportDto.getDescription() == null ? "Não possui setor" : basicReportDto.getDescription());
+        }
+
+        return basicReportDtos;
     }
 
     private Optional<ContentEntity> existsById(int id) {

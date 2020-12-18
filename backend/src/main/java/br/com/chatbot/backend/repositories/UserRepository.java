@@ -3,6 +3,7 @@ package br.com.chatbot.backend.repositories;
 import br.com.chatbot.backend.dtos.BasicReportDto;
 import br.com.chatbot.backend.models.ProfileEntity;
 import br.com.chatbot.backend.models.UserEntity;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -65,12 +66,12 @@ public interface UserRepository extends JpaRepository<UserEntity, Integer> {
     @Query("select new br.com.chatbot.backend.dtos.BasicReportDto(s.description, count(u.id)) "
             + "from UserEntity u "
             + "inner join SectorEntity s on s.id = u.sector.id "
-            + "group by s.description ")
-    List<BasicReportDto> getAllSectorDescriptionAndCountIdGroupBySectorDescription();
+            + "group by s.description order by count(u.id) desc ")
+    List<BasicReportDto> getAllSectorDescriptionAndCountIdGroupBySectorDescription(Pageable pageable);
 
     @Query("select new br.com.chatbot.backend.dtos.BasicReportDto(p.description, count(u.id)) "
             + "from UserEntity u "
             + "inner join ProfileEntity p on p.id = u.profile.id "
-            + "group by p.description ")
-    List<BasicReportDto> getAllProfileDescriptionAndCountIdGroupByProfileDescription();
+            + "group by p.description order by p.description ")
+    List<BasicReportDto> getAllProfileDescriptionAndCountIdGroupByProfileDescription(Pageable pageable);
 }

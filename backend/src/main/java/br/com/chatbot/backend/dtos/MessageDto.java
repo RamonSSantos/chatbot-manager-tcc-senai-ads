@@ -11,7 +11,9 @@ import java.util.List;
 public class MessageDto {
     private int id;
     private int actor;
-    private String description;
+    private int status;
+    private int userId;
     private int contentId;
+    private int questionId;
     private List<LogDto> log;
 }
