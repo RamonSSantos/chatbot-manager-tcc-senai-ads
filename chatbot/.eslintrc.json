@@ -1,0 +1,72 @@
+{
+    "env": {
+        "browser": true,
+        "es2020": true
+    },
+    "extends": [
+        "airbnb-base"
+    ],
+    "parserOptions": {
+        "ecmaVersion": 11,
+        "sourceType": "module"
+    },
+    "plugins": [
+        "eslint-plugin-import-helpers",
+        "import"
+    ],
+    "rules": {
+        "no-console": "off",
+        "quotes": [
+            1,
+            "single",
+            {
+                "allowTemplateLiterals": true
+            }
+        ],
+        "linebreak-style": [
+            "error",
+            "windows"
+        ],
+        "semi": [
+            "error",
+            "never"
+        ],
+        "import-helpers/order-imports": [
+            "warn",
+            {
+                "newlinesBetween": "always",
+                "groups": [
+                    "module",
+                    "/^@/",
+                    [
+                        "parent",
+                        "sibling",
+                        "index"
+                    ]
+                ],
+                "alphabetize": {
+                    "order": "asc",
+                    "ignoreCase": true
+                }
+            }
+        ],
+        "class-methods-use-this": [
+            "off"
+        ],
+        "no-param-reassign": 0
+    },
+    "settings": {
+        "import/resolver": {
+            "node": {
+                "paths": [
+                    "src"
+                ]
+            },
+            "babel-module": {
+                "alias": {
+                    "@": "./src"
+                }
+            }
+        }
+    }
+}
