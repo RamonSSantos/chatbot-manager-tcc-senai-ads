@@ -22,6 +22,12 @@ API do chatbot desenvolvida no DialogFlow
 Rota: /chatbot
 ```
 
+## Configuração
+```
+Segue abaixo o caminho do arquivo que contém mais detalhes da configuração inicial do projeto:
+./documentation/README.docs
+```
+
 ## Ambiente de produção
 ```
 Executar o comando: mvn install
