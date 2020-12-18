@@ -6,6 +6,7 @@ Backend do sistema web do chatbot
 Java Version 10.0.2
 Javac Version 1.8.0_191
 Apache Maven Version 3.6.3
+MySql Workbench Version 8.0.13
 ```
 ## Ambiente de Desenvolvimento
 ```
