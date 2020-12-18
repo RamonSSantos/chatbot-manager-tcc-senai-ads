@@ -118,6 +118,7 @@ export default {
         name: 'Contents',
       },
       { title: 'Eventos', icon: 'mdi-table-eye', name: 'Events' },
+      { title: 'Relatórios', icon: 'mdi-chart-arc', name: 'Reports' },
       {
         title: 'Área Restrita',
         icon: 'mdi-account-lock',

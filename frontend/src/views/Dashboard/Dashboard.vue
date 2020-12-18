@@ -7,7 +7,12 @@
       <v-card-text>
         <v-row justify="center">
           <v-col cols="12" sm="6" md="6">
-            <v-card class="grey lighten-4 my-4">
+            <v-skeleton-loader
+              v-if="statusContentsAndTopics"
+              type="table-heading, table-row, text"
+            >
+            </v-skeleton-loader>
+            <v-card class="grey lighten-4 my-4" v-else>
               <v-card-title class="grey--text text--darken-1 flex-column">
                 Conteúdos x Temas
               </v-card-title>
@@ -17,7 +22,7 @@
                     <thead>
                       <tr>
                         <th id="description" class="text-left">
-                          Descrição
+                          Tema
                         </th>
                         <th id="amount" class="text-left">
                           Quantidade
@@ -39,7 +44,12 @@
             </v-card>
           </v-col>
           <v-col cols="12" sm="6" md="6">
-            <v-card class="grey lighten-4 my-4">
+            <v-skeleton-loader
+              v-if="statusContentsAndSectors"
+              type="table-heading, table-row, text"
+            >
+            </v-skeleton-loader>
+            <v-card class="grey lighten-4 my-4" v-else>
               <v-card-title class="grey--text text--darken-1 flex-column">
                 Conteúdos x Setor
               </v-card-title>
@@ -49,7 +59,7 @@
                     <thead>
                       <tr>
                         <th id="description" class="text-left">
-                          Descrição
+                          Setor
                         </th>
                         <th id="amount" class="text-left">
                           Quantidade
@@ -73,7 +83,12 @@
         </v-row>
         <v-row justify="center">
           <v-col cols="12" sm="6" md="6">
-            <v-card class="grey lighten-4 my-4">
+            <v-skeleton-loader
+              v-if="statusUsersAndProfiles"
+              type="table-heading, table-row, text"
+            >
+            </v-skeleton-loader>
+            <v-card class="grey lighten-4 my-4" v-else>
               <v-card-title class="grey--text text--darken-1 flex-column">
                 Usuários x Perfis
               </v-card-title>
@@ -83,7 +98,7 @@
                     <thead>
                       <tr>
                         <th id="description" class="text-left">
-                          Descrição
+                          Perfil
                         </th>
                         <th id="amount" class="text-left">
                           Quantidade
@@ -105,7 +120,12 @@
             </v-card>
           </v-col>
           <v-col cols="12" sm="6" md="6">
-            <v-card class="grey lighten-4 my-4">
+            <v-skeleton-loader
+              v-if="statusUsersAndSectors"
+              type="table-heading, table-row, text"
+            >
+            </v-skeleton-loader>
+            <v-card class="grey lighten-4 my-4" v-else>
               <v-card-title class="grey--text text--darken-1 flex-column">
                 Usuários x Setor
               </v-card-title>
@@ -115,7 +135,7 @@
                     <thead>
                       <tr>
                         <th id="description" class="text-left">
-                          Descrição
+                          Setor
                         </th>
                         <th id="amount" class="text-left">
                           Quantidade
@@ -139,7 +159,12 @@
         </v-row>
         <v-row justify="center">
           <v-col cols="12" sm="6" md="6">
-            <v-card class="grey lighten-4 my-4">
+            <v-skeleton-loader
+              v-if="statusLogsAndStatus"
+              type="table-heading, table-row, text"
+            >
+            </v-skeleton-loader>
+            <v-card class="grey lighten-4 my-4" v-else>
               <v-card-title class="grey--text text--darken-1 flex-column">
                 Eventos x Status
               </v-card-title>
@@ -149,7 +174,7 @@
                     <thead>
                       <tr>
                         <th id="description" class="text-left">
-                          Descrição
+                          Status
                         </th>
                         <th id="amount" class="text-left">
                           Quantidade
@@ -182,10 +207,15 @@ export default {
   name: 'Dashboard',
   data: () => ({
     contentsAndTopics: [],
+    statusContentsAndTopics: true,
     contentsAndSectors: [],
+    statusContentsAndSectors: true,
     usersAndProfiles: [],
+    statusUsersAndProfiles: true,
     usersAndSectors: [],
+    statusUsersAndSectors: true,
     logsAndStatus: [],
+    statusLogsAndStatus: true,
   }),
   created() {
     this.getContentsAndTopics()
@@ -198,22 +228,27 @@ export default {
     async getContentsAndTopics() {
       const response = await ContentService.getAllGroupByTopicDescription()
       this.contentsAndTopics = response.data
+      this.statusContentsAndTopics = false
     },
     async getContentsAndSectors() {
       const response = await ContentService.getAllGroupBySectorDescription()
       this.contentsAndSectors = response.data
+      this.statusContentsAndSectors = false
     },
     async getUsersAndProfiles() {
       const response = await UserService.getAllGroupByProfileDescription()
       this.usersAndProfiles = response.data
+      this.statusUsersAndProfiles = false
     },
     async getUsersAndSectors() {
       const response = await UserService.getAllGroupBySectorDescription()
       this.usersAndSectors = response.data
+      this.statusUsersAndSectors = false
     },
     async getLogsAndStatus() {
       const response = await MonitoringService.getAllGroupByStatus()
       this.logsAndStatus = response.data
+      this.statusLogsAndStatus = false
     },
   },
 }

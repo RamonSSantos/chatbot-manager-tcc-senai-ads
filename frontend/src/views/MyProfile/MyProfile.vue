@@ -12,7 +12,9 @@
               Dados Gerais
             </v-expansion-panel-header>
             <v-expansion-panel-content>
-              <v-card outlined>
+              <v-skeleton-loader v-if="statusGetUser" type="article, actions">
+              </v-skeleton-loader>
+              <v-card outlined v-else>
                 <v-card-text class="py-0">
                   <v-container>
                     <v-form
@@ -132,7 +134,9 @@
               Senha de Acesso
             </v-expansion-panel-header>
             <v-expansion-panel-content>
-              <v-card outlined>
+              <v-skeleton-loader v-if="statusGetUser" type="article, actions">
+              </v-skeleton-loader>
+              <v-card outlined v-else>
                 <v-card-text class="py-0">
                   <v-container>
                     <v-form
@@ -262,6 +266,7 @@ export default {
   data: () => ({
     panel: [0, 1],
     readonly: true,
+    statusGetUser: true,
     user: {
       id: null,
       cpf: null,
@@ -321,9 +326,6 @@ export default {
   created() {
     this.getUser()
   },
-  mounted() {
-    this.$refs.fullnameElement.focus()
-  },
   methods: {
     async getUser() {
       const stateUser = this.$store.getters['stateUser']
@@ -331,6 +333,7 @@ export default {
 
       const response = await UserService.getOwnUser(userAuthenticated.userId)
       this.user = response.data
+      this.statusGetUser = false
     },
     async editGeneralInformation() {
       if (this.$refs.generalInformationForm.validate()) {
