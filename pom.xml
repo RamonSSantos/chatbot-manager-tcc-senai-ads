@@ -17,6 +17,7 @@
     </parent>
 
     <modules>
+        <module>chatbot</module>
         <module>frontend</module>
         <module>backend</module>
     </modules>
