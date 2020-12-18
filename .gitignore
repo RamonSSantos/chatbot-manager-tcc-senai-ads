@@ -40,11 +40,10 @@ build/
 /chatbot/node_modules
 /chatbot/dist
 /chatbot/debug.log
-/chatbot/.env
+
 
 # local env files
-/frontend/.env.local
-/frontend/.env.*.local
+
 
 # Log files
 /frontend/npm-debug.log*
