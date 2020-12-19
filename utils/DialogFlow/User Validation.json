@@ -33,12 +33,12 @@
           "noMatchPromptMessages": [],
           "promptMessages": [],
           "defaultValue": "",
-          "name": "fullname",
+          "name": "firstName",
           "dataType": "@sys.any",
           "isList": false,
           "required": true,
           "prompts": [],
-          "value": "#get-user-followup.fullname",
+          "value": "#get-user-followup.firstName",
           "outputDialogContexts": []
         },
         {

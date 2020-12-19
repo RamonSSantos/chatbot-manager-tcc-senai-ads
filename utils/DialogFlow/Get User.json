@@ -36,8 +36,11 @@
           "name": "fullname",
           "dataType": "@sys.any",
           "isList": false,
-          "required": false,
-          "prompts": [],
+          "required": true,
+          "prompts": [
+            "Qual o seu nome completo?",
+            "Informe o seu nome completo"
+          ],
           "value": "$fullname",
           "outputDialogContexts": []
         },

@@ -23,7 +23,47 @@
           "lifespan": 1
         }
       ],
-      "parameters": [],
+      "parameters": [
+        {
+          "noInputPromptMessages": [],
+          "noMatchPromptMessages": [],
+          "promptMessages": [],
+          "defaultValue": "",
+          "name": "firstName",
+          "dataType": "@sys.any",
+          "isList": false,
+          "required": false,
+          "prompts": [],
+          "value": "$firstName",
+          "outputDialogContexts": []
+        },
+        {
+          "noInputPromptMessages": [],
+          "noMatchPromptMessages": [],
+          "promptMessages": [],
+          "defaultValue": "",
+          "name": "registration",
+          "dataType": "@sys.number-integer",
+          "isList": false,
+          "required": false,
+          "prompts": [],
+          "value": "$registration",
+          "outputDialogContexts": []
+        },
+        {
+          "noInputPromptMessages": [],
+          "noMatchPromptMessages": [],
+          "promptMessages": [],
+          "defaultValue": "",
+          "name": "userId",
+          "dataType": "@sys.number-integer",
+          "isList": false,
+          "required": false,
+          "prompts": [],
+          "value": "$userId",
+          "outputDialogContexts": []
+        }
+      ],
       "defaultResponsePlatforms": {},
       "messages": [],
       "resetContexts": false

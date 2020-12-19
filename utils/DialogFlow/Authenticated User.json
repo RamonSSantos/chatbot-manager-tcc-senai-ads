@@ -91,9 +91,6 @@
           "condition": "",
           "payload": {
             "hangouts": {
-              "header": {
-                "title": "Deseja receber materias/conteúdos/avisos que são disponibilizados para os colaboradores?"
-              },
               "sections": [
                 {
                   "widgets": [
@@ -101,6 +98,7 @@
                       "buttons": [
                         {
                           "textButton": {
+                            "text": "Sim",
                             "onClick": {
                               "action": {
                                 "actionMethodName": "accept.content",
@@ -115,19 +113,19 @@
                                   }
                                 ]
                               }
-                            },
-                            "text": "Sim"
+                            }
                           }
                         },
                         {
                           "textButton": {
+                            "text": "Não",
                             "onClick": {
                               "action": {
                                 "actionMethodName": "dont.accept.content",
                                 "parameters": [
                                   {
-                                    "value": "$firstName",
-                                    "key": "firstName"
+                                    "key": "firstName",
+                                    "value": "$firstName"
                                   },
                                   {
                                     "key": "userId",
@@ -135,15 +133,17 @@
                                   }
                                 ]
                               }
-                            },
-                            "text": "Não"
+                            }
                           }
                         }
                       ]
                     }
                   ]
                 }
-              ]
+              ],
+              "header": {
+                "title": "Deseja receber materias/conteúdos/avisos que são disponibilizados para os colaboradores?"
+              }
             }
           }
         }

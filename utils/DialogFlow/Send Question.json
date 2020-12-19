@@ -37,6 +37,19 @@
           "noMatchPromptMessages": [],
           "promptMessages": [],
           "defaultValue": "",
+          "name": "firstName",
+          "dataType": "@sys.any",
+          "isList": false,
+          "required": true,
+          "prompts": [],
+          "value": "#content-followup.firstName",
+          "outputDialogContexts": []
+        },
+        {
+          "noInputPromptMessages": [],
+          "noMatchPromptMessages": [],
+          "promptMessages": [],
+          "defaultValue": "",
           "name": "userId",
           "dataType": "@sys.number-integer",
           "isList": false,
@@ -82,6 +95,19 @@
           "required": true,
           "prompts": [],
           "value": "#content-followup.questionDescription",
+          "outputDialogContexts": []
+        },
+        {
+          "noInputPromptMessages": [],
+          "noMatchPromptMessages": [],
+          "promptMessages": [],
+          "defaultValue": "",
+          "name": "messageId",
+          "dataType": "@sys.number-integer",
+          "isList": false,
+          "required": true,
+          "prompts": [],
+          "value": "#content-followup.messageId",
           "outputDialogContexts": []
         },
         {
