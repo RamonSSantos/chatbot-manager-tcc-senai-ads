@@ -47,7 +47,7 @@
                             <goal>yarn</goal>
                         </goals>
                         <configuration>
-                            <arguments>install --ignores-engines</arguments>
+                            <arguments>install --ignore-engines</arguments>
                         </configuration>
                     </execution>
                     <execution>
